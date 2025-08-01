@@ -86,6 +86,14 @@ const sessionOptions = {
 
 
 
+app.use((req, res, next) => {
+  res.setHeader(
+    "Content-Security-Policy",
+    "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' https://res.cloudinary.com data:;"
+  );
+  next();
+});
+
 
 // app.get("/" , (req,res) =>{
 //     res.send("hi i am root");
