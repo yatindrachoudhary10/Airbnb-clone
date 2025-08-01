@@ -23,6 +23,9 @@ const User =require("./models/user.js");
 const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
+const helmet = require("helmet");
+app.use(helmet());
+
 
 
 
@@ -88,6 +91,10 @@ const sessionOptions = {
 //     res.send("hi i am root");
 // });
 
+
+app.get("/", (req, res) => {
+  res.redirect("/listings");
+});
 
 
 
