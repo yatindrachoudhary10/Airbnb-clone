@@ -113,3 +113,72 @@ font-size: 2rem;
   padding-left: 0;
   padding-right: 0;
  }
+
+ @media (max-width: 768px) {
+  .navbar {
+    height: auto;
+    padding: 0.5rem 1rem;
+  }
+
+  #filters {
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: 1rem;
+    padding: 1rem 0.5rem;
+    scroll-snap-type: x mandatory;
+  }
+
+  .filter {
+    flex: 0 0 auto;
+    text-align: center;
+    scroll-snap-align: start;
+  }
+
+  .filter p {
+    font-size: 0.7rem;
+  }
+
+  .tax-toggle {
+    margin-left: 0;
+    margin-top: 1rem;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .row-cols-sm-3 > * {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
+
+  .card-img-top {
+    height: 14rem;
+    object-fit: cover;
+  }
+
+  .f-info {
+    height: auto;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 1rem 0.5rem;
+  }
+
+  .f-info-links,
+  .f-info-socials,
+  .f-info-brand {
+    justify-content: center;
+    margin-bottom: 0.5rem;
+  }
+
+  .show-img {
+    height: 20vh !important;
+  }
+
+  .btns {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .btns .btn {
+    width: 100%;
+  }
+}

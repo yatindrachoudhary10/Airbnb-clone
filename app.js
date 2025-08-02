@@ -24,7 +24,35 @@ const listingRouter = require("./routes/listing.js");
 const reviewRouter = require("./routes/review.js");
 const userRouter = require("./routes/user.js");
 const helmet = require("helmet");
-app.use(helmet());
+app.use(
+  helmet.contentSecurityPolicy({
+    directives: {
+      defaultSrc: ["'self'"],
+      scriptSrc: [
+        "'self'",
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com', // ✅ for Font Awesome JS (if used)
+      ],
+      styleSrc: [
+        "'self'",
+        "'unsafe-inline'", // ✅ Required for Font Awesome inline styles
+        'https://cdn.jsdelivr.net',
+        'https://cdnjs.cloudflare.com', // ✅ Font Awesome CSS
+      ],
+      fontSrc: [
+        "'self'",
+        'https://cdnjs.cloudflare.com', // ✅ Font Awesome fonts
+        'data:',
+      ],
+      imgSrc: [
+        "'self'",
+        'data:',
+        'https://res.cloudinary.com',
+      ],
+      connectSrc: ["'self'"],
+    },
+  })
+);
 
 
 
@@ -86,13 +114,13 @@ const sessionOptions = {
 
 
 
-app.use((req, res, next) => {
-  res.setHeader(
-    "Content-Security-Policy",
-    "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' https://res.cloudinary.com data:;"
-  );
-  next();
-});
+// app.use((req, res, next) => {
+//   res.setHeader(
+//     "Content-Security-Policy",
+//     "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net; img-src 'self' https://res.cloudinary.com data:;"
+//   );
+//   next();
+// });
 
 
 // app.get("/" , (req,res) =>{
