@@ -30,29 +30,35 @@ app.use(
       defaultSrc: ["'self'"],
       scriptSrc: [
         "'self'",
-        'https://cdn.jsdelivr.net',
-        'https://cdnjs.cloudflare.com', // ✅ for Font Awesome JS (if used)
+        "https://cdn.jsdelivr.net",
+        "https://cdnjs.cloudflare.com",
+        "https://kit.fontawesome.com", // ✅ for FA kit
       ],
       styleSrc: [
         "'self'",
-        "'unsafe-inline'", // ✅ Required for Font Awesome inline styles
-        'https://cdn.jsdelivr.net',
-        'https://cdnjs.cloudflare.com', // ✅ Font Awesome CSS
+        "'unsafe-inline'",
+        "https://cdn.jsdelivr.net",
+        "https://cdnjs.cloudflare.com",
+        "https://fonts.googleapis.com", // ✅ for Google Fonts if used
       ],
       fontSrc: [
         "'self'",
-        'https://cdnjs.cloudflare.com', // ✅ Font Awesome fonts
-        'data:',
+        "https://cdnjs.cloudflare.com",
+        "https://fonts.gstatic.com", // ✅ for Google Fonts
+        "data:",
       ],
       imgSrc: [
         "'self'",
-        'data:',
-        'https://res.cloudinary.com',
+        "data:",
+        "https://res.cloudinary.com", // ✅ for images hosted there
       ],
       connectSrc: ["'self'"],
+      objectSrc: ["'none'"], // 📛 disable flash/embedding
+      baseUri: ["'self'"],
     },
   })
 );
+
 
 
 
